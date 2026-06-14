@@ -6,9 +6,11 @@ const applicationRouter = require("./routes/application.routes");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
-// 1. CORS FIRST
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "https://job-portal-frontent-jp15.vercel.app/"
+  ],
   credentials: true
 }));
 
