@@ -9,7 +9,7 @@ const cors = require("cors");
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://job-portal-frontent-lta8.vercel.app/"
+    "https://job-portal-frontent-lta8.vercel.app"
   ],
   credentials: true
 }));
