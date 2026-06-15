@@ -1,11 +1,12 @@
 const jwt = require("jsonwebtoken");
 
 const isLoggedIn = async (req, res, next) => {
-   
+   console.log("middleware hit");
+
   try {
 
     const token = req.cookies.token;
-
+     console.log(token,"token")
     if (!token) {
       return res.status(401).json({
         success: false,
@@ -17,7 +18,7 @@ const isLoggedIn = async (req, res, next) => {
       token,
       process.env.JWT_SECRET
     );
-    
+    console.log(decoded,"decoded")
     req.user = decoded;
 
     next();
