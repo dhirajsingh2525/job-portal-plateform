@@ -5,6 +5,8 @@ const { isLoggedIn } = require("../middleware/auth.middleware");
 
 const {
   applyJob,
+  getRecruiterApplications,
+  deleteApplication
 } = require("../controller/application.controller");
 
 router.post(
@@ -12,5 +14,12 @@ router.post(
   isLoggedIn,
   applyJob
 );
+router.get(
+  "/recruiter",
+  isLoggedIn,
+  getRecruiterApplications
+);
+
+router.delete("/:id", isLoggedIn, deleteApplication);
 
 module.exports = router;

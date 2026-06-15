@@ -40,7 +40,6 @@ exports.createJob = async (req, res) => {
       experience,
       postedBy: req.user.id,
     });
-    console.log(job)
 
     res.status(201).json({
       success: true,
