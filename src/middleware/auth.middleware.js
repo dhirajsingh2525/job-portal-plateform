@@ -4,7 +4,7 @@ const isLoggedIn = async (req, res, next) => {
    console.log("middleware hit");
 
   try {
-
+   
     const token = req.cookies.token;
      console.log(token,"token")
     if (!token) {
