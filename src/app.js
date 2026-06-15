@@ -26,5 +26,10 @@ app.use("/api", userRouter);
 app.use("/api/job", jobRouter);
 app.use("/api/applications", applicationRouter);
 
+app.get("/version", (req, res) => {
+  res.json({
+    version: "999999"
+  });
+});
 
 module.exports = app;
