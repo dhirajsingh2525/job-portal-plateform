@@ -139,14 +139,13 @@ exports.updateUser = async (req, res) => {
 
 
 exports.getMe = async (req, res) => {
-  console.log("/pai/me hit")
+  
   try {
 
     const user = await User.findById(req.user.id)
       .select("-password")
       .populate("appliedJobs", "name company education role resume")
       
-      console.log(user)
     return res.status(200).json({
       success: true,
       user
@@ -163,9 +162,13 @@ exports.getMe = async (req, res) => {
 
 
 exports.logoutUser = (req, res) => {
-   console.log("LOGOUT HIT"); // 🔥 MUST PRINT
 
-  res.clearCookie("token");
+  res.clearCookie("token", {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+  path: "/",
+});
 
   res.status(200).json({
     success: true,
